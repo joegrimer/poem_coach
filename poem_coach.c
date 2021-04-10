@@ -10,7 +10,7 @@ void println(char* line) {
     char *temp_ptr = line;
     do printf("%c", *temp_ptr == '>' ? '\n' : *temp_ptr);
     while(*temp_ptr++ != '\n');
-//    printf("\n");
+//        printf("\n");
 }
 
 int main(int argc, char *argv[]) {
@@ -52,20 +52,25 @@ int main(int argc, char *argv[]) {
 //            printf("found %c", **(lines_ptr-1));
         }
     }
-    no_of_lines -= POEM_CHUNK_SIZE;
+    *lines_ptr = '\0'; // end
+//    no_of_lines -= POEM_CHUNK_SIZE;
+//
+//    do {
+//        int random_no = rand()+clock();
+//        int random_line_no = random_no % no_of_lines;
+//        char* random_line = lines[random_line_no];
+//        char* random_line_2 = lines[random_line_no+1];
+//        char* random_line_3 = lines[random_line_no+2];
+//        println(random_line);
+//        println(random_line_2);
+//        if (getchar())
+//            println(random_line_3);
+//        printf("\n------------------\n");
+//    } while(getchar());
 
-    do {
-        int random_no = rand()+clock();
-        int random_line_no = random_no % no_of_lines;
-        char* random_line = lines[random_line_no];
-        char* random_line_2 = lines[random_line_no+1];
-        char* random_line_3 = lines[random_line_no+2];
-        println(random_line);
-        println(random_line_2);
-        if (getchar())
-            println(random_line_3);
-        printf("\n------------------\n");
-    } while(getchar());
+    for(int i=0;i<no_of_lines;i++) { //  && getchar()
+        println(lines[i]);
+    }
 
     fclose(fp);
 //    printf("\n%s", poem_buffer);
