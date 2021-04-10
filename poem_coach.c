@@ -8,8 +8,11 @@
 
 void println(char* line) {
     char *temp_ptr = line;
-    do printf("%c", *temp_ptr == '>' ? '\n' : *temp_ptr);
-    while(*((temp_ptr++)+1) != '\n');
+    do {
+        if (*temp_ptr != '\n')
+            printf("%c", *temp_ptr == '>' ? '\n' : *temp_ptr);
+
+    } while(*temp_ptr++ != '\n');
 //        printf("\n");
 }
 
@@ -69,7 +72,8 @@ int main(int argc, char *argv[]) {
 //    } while(getchar());
 
     for(int i=0;i<no_of_lines;i++) { //  && getchar()
-        println(lines[i]);
+        if (getchar())
+            println(lines[i]);
     }
 
     fclose(fp);
