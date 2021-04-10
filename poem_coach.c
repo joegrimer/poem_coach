@@ -9,7 +9,7 @@
 void println(char* line) {
     char *temp_ptr = line;
     do printf("%c", *temp_ptr == '>' ? '\n' : *temp_ptr);
-    while(*temp_ptr++ != '\n');
+    while(*((temp_ptr++)+1) != '\n');
 //        printf("\n");
 }
 
