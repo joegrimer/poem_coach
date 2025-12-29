@@ -71,7 +71,7 @@ int main(int argc, char *argv[]) {
 //        printf("\n------------------\n");
 //    } while(getchar());
 
-    for(int i=0;i<no_of_lines;i++) { //  && getchar()
+    for(int i=0;i<no_of_lines;i++) {
         if (getchar())
             println(lines[i]);
     }
